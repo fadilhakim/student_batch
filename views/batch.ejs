@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>List Student</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.1/css/bulma.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+     
+</head>
+<style>
+       body {
+            background-image:url("https://orig00.deviantart.net/b2cf/f/2011/196/e/c/little__fox__animation__by_hyperchaotix-d3sv1s9.gif"); 
+            background-repeat: no-repeat;
+            background-position-x: 990px;
+            background-position-y: 391px;
+            height: 630px;
+            background-size: 25%;
+       }
+    </style>
+<body>
+        <div class="container">
+            <div class="row">
+            <div class="col-lg-6">
+                <h2 class="title">Add Batch Here</h2>
+                <form class="form-horizontal" action="batchs/add_batch" method="post">
+                    <div class="form-group">
+                        <label class="control-label col-sm-4">Batch Name :</label>
+                        <div class="col-sm-8 ">
+                        <input name="batchName" class="form-control" type="text" placeholder="Enter Batch Name">
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <div class="control">
+                            <input type="submit" class="button is-large is-success" value="submit"/>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-lg-6">
+                    <h3 class="title">
+                        List Batch
+                    </h3>
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <tr>
+                                <td>Id</td>
+                                <td>Batch</td>
+                                <!-- <td>Total Student</td> -->
+                            </tr>
+                            <% for(let i = 0; i < listBatch.length; i++) { %>
+                                <tr>
+                                    <td><%= i %></td>
+                                    <td><%= listBatch[i].batchName %></td>
+                                </tr>
+                            <% }  %>
+                        </table>
+                    </div>      
+                </div>
+            </div>
+        </div>
+        
+    
+</body>
+</html>

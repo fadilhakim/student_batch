@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>List Student</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.1/css/bulma.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+</head>
+<style>
+        body {
+            background-image:url("https://orig00.deviantart.net/b2cf/f/2011/196/e/c/little__fox__animation__by_hyperchaotix-d3sv1s9.gif"); 
+            background-repeat: no-repeat;
+            background-position-x: 990px;
+            background-position-y: 391px;
+            height: 630px;
+            background-size: 25%;
+        }
+        
+    </style>
+<body>
+        <div class="container">
+            <div class="row">
+            <div class="col-lg-6">
+                <h2 class="title">Add Students Form</h2>
+                <form class="form-horizontal" action="students/add_student" method="post">
+                    <div class="form-group">
+                        <label class="control-label col-sm-4">Name :</label>
+                        <div class="col-sm-8 ">
+                        <input name="name" class="form-control" type="text" placeholder="Enter Student Name">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-sm-4">Age</label>
+                        <div class="col-sm-8 ">
+                        <input name="age" class="form-control" type="text" placeholder="Enter Student Name">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-sm-4">Email</label>
+                        <div class="col-sm-8 ">
+                        <input name="email" class="form-control" type="text" placeholder="Student Email">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-sm-4">Score</label>
+                        <div class="col-sm-8 ">
+                        <input name="score" class="form-control" type="number" placeholder="Student Score">
+                        </div>
+                    </div>
+ 
+                    <div class="field">
+                        <div class="control">
+                            <input type="submit" class="button is-large is-success" value="submit"/>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-lg-10">
+                    <h3 class="title">
+                        List Of Students
+                    </h3>
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <tr>
+                                <td>Id</td>
+                                <td>Name</td>
+                                <td>Age</td>
+                                <td>Email</td>
+                                <td>Score</td>
+                                <td>Grade</td>
+                                <td>Action</td>
+                            </tr>
+                            <% for(let i = 0; i < listStudents.length; i++) { %>
+                                <tr>
+                                    <td><%= i %></td>
+                                    <td><%= listStudents[i].name %></td>
+                                    <td><%= listStudents[i].age %></td>
+                                    <td><%= listStudents[i].email%></td>
+                                    <td><%= listStudents[i].score%></td>
+                                    <td><%= Studentgrade[i].grade %></td>
+                                    <td>
+                                        <a class="button is-large is-warning" href="students/edit/<%= listStudents[i].id %>">Edit</a>
+                                        <a class="button is-large is-danger" href="students/delete/<%= listStudents[i].id %>">Delete</a>
+                                    </td>
+                                </tr>
+                            <% }  %>
+                        </table>
+                    </div>      
+                </div>
+            </div>
+        </div>
+        
+    
+</body>
+</html>
